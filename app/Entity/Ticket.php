@@ -4,31 +4,36 @@ namespace App\Entity;
 
 use \App\Db\Database;
 
+use \PDO;
+
+#[\AllowDynamicProperties]
+
+
 Class Ticket {
 
-    protected $id;
+    public $id;
 
-    private $title;
+    public $title;
 
-    private $description;
+    public $description;
 
-    private $status;
+    public $status;
 
-    private $sys;
+    public $sys;
 
-    private $SLA;
+    public $SLA;
 
-    private $GCM = null;
+    public $GCM = null;
 
-    private $author;
+    public $author;
 
-    private $idCostumer;
+    public $idCostumer;
 
-    private $tag;
+    public $tag;
 
-    private $date;
+    public $date;
 
-    public function __construct($title, $description, $status, $sys, $SLA, $GCM, $author, $idCostumer, $tag){
+    public function __construct($title = null, $description = null, $status = null , $sys = null, $SLA = null, $GCM = null, $author  = null, $idCostumer = null, $tag=null){
 
         $this->title=$title;
         $this->description=$description;
@@ -56,8 +61,10 @@ Class Ticket {
             'GCM'=>$this->GCM,
             'data'=>$this->date,
             'idResponsavel'=>$this->author,
-            'idCliente'=>$this->idCostumer
+            'idCliente'=>$this->idCostumer,
+            'tag'=>$this->tag
         ]);
+        return true;
         
     }
 
@@ -65,9 +72,16 @@ Class Ticket {
         return $this->id;
     }
 
-    public function __get($atrib){
-        return $atrib;
+    public static function getTickets($where = null, $order = null, $limit = null){
+        return (new Database('ticket'))->select($where,$order,$limit)->fetchAll(PDO::FETCH_CLASS,self::class);
     }
+
+    public static function getTicket($id){
+        return ((new Database('ticket'))->select('id='.$id))->fetchObject(self::class);
+
+    }
+    
+
     
     
 }
