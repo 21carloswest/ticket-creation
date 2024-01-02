@@ -2,6 +2,7 @@
 
 require __DIR__."/vendor/autoload.php";
 
+<<<<<<< Updated upstream
 use \App\Entity\Sla;
 use \App\Db\Select;
 
@@ -13,6 +14,10 @@ if(isset($_POST["SLA_DESC"])){
 
     exit;
 }
+=======
+use \App\Db\Select;
+
+>>>>>>> Stashed changes
 
 $aftermath = "";
 
