@@ -14,31 +14,28 @@ foreach($consTicket as $ticket){
 
 ?>
 
-<a href = "create.php">
-    <button class="btn btn-success">Novo</button>
-</a>
+<div class="ps-3">
+    <button class="btn btn-success me-2" onclick="window.location='create.php'">Novo</button>
+    <button class="btn btn-primary">Buscar ticket</button>
 
-<a>
-    <button class="btn btn-light">Buscar ticket</button>
-</a>
+    <section>
 
-<section>
+        <table class="table bg-light mt-3">
 
-    <table class="table bg-light mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Status</th>
+                    <th>Responsável</th>
+                </tr>
+            </thead>
 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Status</th>
-                <th>Responsável</th>
-            </tr>
-        </thead>
+            <tbody>
+                <?= $resultado;?>
 
-        <tbody>
-            <?= $resultado;?>
+            </tbody>
+        </table>
 
-        </tbody>
-    </table>
-
-</section>
+    </section>
+</div>
