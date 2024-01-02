@@ -21,5 +21,5 @@ if(isset($_POST["title"], /*$_POST['description'], $_POST['status'], $_POST['sys
 
     
     
-
+    exit;
 }
