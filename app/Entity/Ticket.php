@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
-Class Ticket{
+use \App\Db\Database;
 
-    private $id;
+Class Ticket {
+
+    protected $id;
 
     private $title;
 
@@ -24,18 +26,50 @@ Class Ticket{
 
     private $tag;
 
-    function __construct($title, $description, $status, $sys, $SLA, $author, $idCostumer, $tag){
+    private $date;
+
+    public function __construct($title, $description, $status, $sys, $SLA, $GCM, $author, $idCostumer, $tag){
 
         $this->title=$title;
         $this->description=$description;
         $this->status=$status;
         $this->sys=$sys;
         $this->SLA=$SLA;
+        $this->GCM=$GCM;
         $this->author=$author;
         $this->idCostumer=$idCostumer;
-        $this->idCostumer=$tag;
+        $this->tag=$tag;
         
     }
+
+    
+    public function createTicket(){
+        $this->date=date("Y-m-d H:i:s");
+
+        $obDatabase = new Database("ticket");
+
+        $this->id = $obDatabase->insert([
+            'titulo'=>$this->title,
+            'idStatus'=>$this->status,
+            'idSistema'=>$this->sys,
+            'SLA'=>$this->SLA,
+            'GCM'=>$this->GCM,
+            'data'=>$this->date,
+            'idResponsavel'=>$this->author,
+            'idCliente'=>$this->idCostumer
+        ]);
+        
+    }
+
+    public function getID(){
+        return $this->id;
+    }
+
+    public function __get($atrib){
+        return $atrib;
+    }
+    
+    
 }
 
 /*
