@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   </head>
   <body class="bs-light d-flex flex-column bg-light vh-50">
-  <div style="background-color: #2C2C54" class="text-light">
+  <div style="background-color: #2C2C54" class="text-light shadow-sm">
     <h1>Gerador de ticket</h1>
   </div>
   <div class="pe-5">

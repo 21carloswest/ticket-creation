@@ -3,7 +3,7 @@
 
         <form method="POST" class="d-flex flex-row">
 
-            <div class="d-flex flex-column table-overflow me-3 px-3 text-light mh-100" style="background-color: #474787">
+            <div class="d-flex flex-column table-overflow me-3 px-3 text-light mh-100 shadow" style="background-color: #474787">
                 <div class="mb-3">
                     <label class="form-label" for="status">Status</label>
                     <select for="status" class="form-control" id="status" name="status">
@@ -62,12 +62,12 @@
             <h2 class="">Novo ticket</h2>
                 <div class="mb-3">
                     <label class="form-label" for="title">Título</label>
-                    <input class="form-control border border-secondary" id="title"type = "text" name="title">
+                    <input class="form-control shadow-lg rounded" id="title"type = "text" name="title">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="description">Descrição</label>
-                    <textarea class="form-control border border-secondary" id="description"name="description" rows="16" ></textarea>
+                    <textarea class="form-control shadow-lg rounded" id="description"name="description" rows="16" ></textarea>
                 </div>
                 <div class="align-self-end">
                     <button type="button"class="btn btn-primary me-2" onclick="window.location='index.php'">Voltar</button>
