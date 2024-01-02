@@ -30,7 +30,7 @@ class Database{
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             die("ERROR".$e->getMessage());
-        } 
+        }
     }
 
     public function execute($query, $params=[]){
@@ -56,17 +56,17 @@ class Database{
         //monta a query
 
         $query = 'INSERT INTO '.$this->table.' ('.implode(',',$fields).') VALUES ('.implode(',', $binds).')';
-        
-        
+
+
         //executa
 
         $this->execute($query,array_values($values));
 
         return $this->connection->lastInsertId();
-        
+
     }
 
-    public function select($where = null, $order = null, $limit = null, $fields = '*'){
+    public function select($table, $where = null, $order = null, $limit = null, $fields = '*'){
 
         $where = !empty($where) ? 'WHERE '.$where :'';
 
@@ -74,9 +74,20 @@ class Database{
 
         $limit = !empty($limit) ? 'LIMIT '.$limit :'';
 
-        $query = 'SELECT '.$fields.' FROM '.'ticket'.' '.$where.' '.$order.' '.$limit;
+        $query = 'SELECT '.$fields.' FROM '.$table.' '.$where.' '.$order.' '.$limit;
 
         return $this->execute($query);
 
     }
+
+    public function update($table, $where, $values){
+
+        $fields = array_keys($values);
+
+        $query = 'UPDATE '.$table.' SET '.implode('=?,',$fields).'=? WHERE '.$where;
+
+        $this->execute($query,array_values($values));
+
+        return true;
+      }
 }

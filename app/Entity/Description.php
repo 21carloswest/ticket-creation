@@ -30,7 +30,7 @@ class Description extends Ticket{
 
         $obDBDesc = new Database('descricao');
 
-        $this->id = $obDBDesc->insert([
+        $obDBDesc->insert([
             'descricao'=>$this->description,
             'data'=>$this->date,
             'idTicket'=>$this->idTicket

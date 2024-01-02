@@ -9,13 +9,11 @@ use \PDO;
 #[\AllowDynamicProperties]
 
 
-Class Ticket {
+Class Ticket{
 
     public $id;
 
     public $title;
-
-    public $description;
 
     public $status;
 
@@ -33,10 +31,9 @@ Class Ticket {
 
     public $date;
 
-    public function __construct($title = null, $description = null, $status = null , $sys = null, $SLA = null, $GCM = null, $author  = null, $idCostumer = null, $tag=null){
+    public function __construct($title = null, $status = null , $sys = null, $SLA = null, $GCM = null, $author  = null, $idCostumer = null, $tag=null){
 
         $this->title=$title;
-        $this->description=$description;
         $this->status=$status;
         $this->sys=$sys;
         $this->SLA=$SLA;
@@ -44,10 +41,10 @@ Class Ticket {
         $this->author=$author;
         $this->idCostumer=$idCostumer;
         $this->tag=$tag;
-        
+
     }
 
-    
+
     public function createTicket(){
         $this->date=date("Y-m-d H:i:s");
 
@@ -65,34 +62,20 @@ Class Ticket {
             'tag'=>$this->tag
         ]);
         return true;
-        
+
     }
 
     public function getID(){
         return $this->id;
     }
 
-    public static function getTickets($where = null, $order = null, $limit = null){
-        return (new Database('ticket'))->select($where,$order,$limit)->fetchAll(PDO::FETCH_CLASS,self::class);
+    public static function getTickets($where = null, $order = 'id DESC', $limit = '20'){
+        return (new Database('ticket'))->select('ticket', $where,$order,$limit)->fetchAll(PDO::FETCH_CLASS,self::class);
     }
 
-    public static function getTicket($id){
-        return ((new Database('ticket'))->select('id='.$id))->fetchObject(self::class);
 
-    }
-    
 
-    
-    
+
+
+
 }
-
-/*
-description
-status
-sys
-SLA
-GCM
-author
-idCostumer
-tag
-*/

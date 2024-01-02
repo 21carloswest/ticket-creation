@@ -1,19 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
     <title>Ticket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   </head>
-  <body class="bg-dark text-light">
-
-    <div class="container">
-        <div class="jumbotron bg-danger">
-           <h1>AAAAAAAAAAAAAAAAA</h1>
-        </div>
-
+  <body class="bs-light d-flex flex-column bg-light vh-50">
+  <div style="background-color: #2C2C54" class="text-light">
+    <h1>Gerador de ticket</h1>
+  </div>
+  <div class="pe-5">

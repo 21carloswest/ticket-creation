@@ -1,64 +1,44 @@
 <main>
     <section>
 
-        <h2 class="mt-3">Novo ticket</h2>
+        <form method="POST" class="d-flex flex-row">
 
-        <form method="POST">
-
-            <div class="form-group">
-                <label for="title">Título</label>
-                <input class="form-control" type = "text" name="title">
-            </div>
-
-            <div class="form-group">
-                <label for="description">Descrição</label>
-                <textarea class="form-control" name="description"></textarea>
-            </div>
-
-            <div class="form-row mt-3">
-
-                <div class="form-group col-md-6">
-                    <label for="status">Status</label>
-                    <select for="status" class="form-control" name="status">
+            <div class="d-flex flex-column table-overflow me-3 px-3 text-light mh-100" style="background-color: #474787">
+                <div class="mb-3">
+                    <label class="form-label" for="status">Status</label>
+                    <select for="status" class="form-control" id="status" name="status">
                         <option value="0">Sem solução no suporte</option>
                         <option value="1">Com equipe de desenvolvimento</option>
                         <option value="3">Resolvido</option>
                     </select>
                 </div>
-
-            </div>
-
-            <div class="form-row">
-
-                <div class="form-group col-md-4">
-                    <label for="sys">Sistema</label>
-                    <select for="sys" class="form-control" name="sys">
-                        
+                <div class="mb-3">
+                    <label class="form-label" for="sys">Sistema</label>
+                    <select for="sys" class="form-control" id="sys" name="sys">
+                        <option value="0">Quero Faturar</option>
+                        <option value="1">Parceiros</option>
+                        <option value="3">Diamond</option>
+                        <option value="4">Sispred</option>
+                        <option value="5">Factoring</option>
+                        <option value="6">CRM</option>
                     </select>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <label for="SLA">Urgência</label>
-                    <select for="SLA" class="form-control" name="SLA">
-                        <option value="0">Imediata</option>
-                        <option value="1">Urgente</option>
-                        <option value="3">Normal</option>
-                        <option value="4">Baixa</option>
+                <div class="mb-3">
+                    <label class="form-label" for="SLA">Urgência</label>
+                    <select for="SLA" class="form-control" id="SLA" name="SLA">
+                        <?=$aftermathSla?>
                     </select>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <label>Nº GCM</label>
-                    <input class="form-control" type="number" min="0" name="GCM">
+                <div class="mb-3">
+                    <label class="form-label" for="GCM">Nº GCM</label>
+                    <input class="form-control" type="number" min="0" id="GCM" name="GCM">
                 </div>
-                
-            </div>
 
-            <div class="form-row">
-
-                <div class="form-group col-md-4">
-                    <label for="author">Responsável</label>
-                    <select for="author" class="form-control" name="author">
+                <div class="mb-3">
+                    <label class="form-label" for="author">Responsável</label>
+                    <select for="author" class="form-control" id="author"name="author">
                         <option value="0">Atendente bagre</option>
                         <option value="1">Atendente bagre 2</option>
                         <option value="3">Atendente bagre 3</option>
@@ -67,36 +47,33 @@
                         <option value="6">Atendente bagre 6</option>
                     </select>
                 </div>
-
-                <div class="form-group col-md-4">
-                    <label for="costumer">Cliente</label>
-                    <input for="costumer" class="form-control" name="costumer">
+                <div class="mb-3">
+                    <label class="form-label" for="costumer">Cliente</label>
+                    <input for="costumer" class="form-control" id="costumer"name="costumer">
                 </div>
 
-                <div class="form-group col-md-4">
-                    <label>Tag</label>
-                    <input class="form-control" type="text" name="tag">
+                <div class="mb-3">
+                    <label class="form-label" for="tag">Tag</label>
+                    <input class="form-control" type="text" name="tag" id="tag">
                 </div>
-                
             </div>
 
-            <div class="form-row">
-
-                <div class="form-group col-md-4">
-                    <label>URL Sispred</label>
-                    <input class="form-control" type="url" name="link">
+            <div class="d-flex flex-column col-md-10">
+            <h2 class="">Novo ticket</h2>
+                <div class="mb-3">
+                    <label class="form-label" for="title">Título</label>
+                    <input class="form-control border border-secondary" id="title"type = "text" name="title">
                 </div>
-                
-            </div>
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Salvar</button>
-                <a href="index.php">
-                    <button type="button"class="btn btn-primary">Voltar</button>
-                </a>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Descrição</label>
+                    <textarea class="form-control border border-secondary" id="description"name="description" rows="16" ></textarea>
+                </div>
+                <div class="align-self-end">
+                    <button type="button"class="btn btn-primary me-2" onclick="window.location='index.php'">Voltar</button>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
             </div>
-        
         </form>
-
     </section>
 </main>
