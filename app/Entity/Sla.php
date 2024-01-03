@@ -29,9 +29,8 @@ Class SLA {
         return true;
     }
 
-    public function atualizarSLA(){
-        return (new Database('SLA'))->update('SLA', 'id = '.$this->id_SLA,[
-                                                                    'id_SLA'    => $this->id_SLA,
+    public function atualizarSLA($id){
+        return (new Database('SLA'))->update('SLA', 'ID_SLA = '."$id",[
                                                                     'DESCRIÇAO_SLA' => $this->name,
                                                                     'ATIVO_SLA'     => $this->ativo,
                                                                   ]);

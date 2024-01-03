@@ -27,6 +27,6 @@ class Select{
     }
 
     public static function getSLA($table, $id){
-        return ((new Database('SLA'))->select($table, 'id='.$id))->fetchObject(self::class);
+        return ((new Database('SLA'))->select($table, 'ID_SLA='.$id))->fetchObject(self::class);
     }
 }
