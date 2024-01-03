@@ -59,7 +59,7 @@ Class Ticket{
             'data'=>$this->date,
             'idResponsavel'=>$this->author,
             'idCliente'=>$this->idCostumer,
-            'tag'=>$this->tag
+            'idTag'=>$this->tag
         ]);
         return true;
 
