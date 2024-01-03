@@ -15,9 +15,8 @@
     </tbody>
 </table>
 
-<button class="btn btn-success" onclick="window.location='newSla.php'">Nova</button>
+<button class="btn btn-success" onclick="window.location='newTag.php'">Nova</button>
 <button type="button" class="btn btn-primary me-2" onclick="window.location='/ticket-creation'">Voltar</button>
 
 
 </section>
-

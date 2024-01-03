@@ -54,7 +54,9 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="tag">Tag</label>
-                    <input class="form-control" type="text" name="tag" id="tag">
+                    <select for="tag" class="form-control" id="tag" name="tag">
+                        <?=$aftermathTag?>
+                    </select>
                 </div>
             </div>
 

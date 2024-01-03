@@ -5,6 +5,6 @@
     document.getElementById("GCM").value="<?=$obTicket->GCM?>";
     document.getElementById("author").value="<?=$obTicket->idResponsavel?>";
     document.getElementById("costumer").value="<?=$obTicket->idCliente?>";
-    document.getElementById("tag").value="<?=$obTicket->tag?>";
+    document.getElementById("tag").value="<?=$obTicket->idTag?>";
     document.getElementById("title").value="<?=$obTicket->titulo?>";
 </script>

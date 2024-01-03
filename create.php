@@ -31,6 +31,13 @@ foreach($consultaSla as $consulta) {
 }
 
 
+$aftermathTag = "";
+
+$consultaTag = Select::getTagsAtivas();
+
+foreach($consultaTag as $consulta) {
+    $aftermathTag .= "<option value='".$consulta->ID_TAG."'>$consulta->NOME_TAG</option>";
+}
 
 
 include __DIR__."/includes/header.php";

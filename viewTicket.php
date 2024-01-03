@@ -51,6 +51,16 @@ foreach($consultaSla as $consulta) {
     $aftermathSla .= "<option value='".$consulta->ID_SLA."'>$consulta->DESCRIÇAO_SLA</option>";
 }
 
+
+$aftermathTag = "";
+
+$consultaTag = Select::getTagsAtivas();
+
+foreach($consultaTag as $consulta) {
+    $aftermathTag .= "<option value='".$consulta->ID_TAG."'>$consulta->NOME_TAG</option>";
+}
+
+
 include __DIR__."/includes/header.php";
 include __DIR__."/includes/edit.php";
 include __DIR__."/js/viewSavedTicket.php";

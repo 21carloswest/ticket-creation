@@ -14,8 +14,8 @@
                 <li><a class="dropdown-item" href="#">Usuário</a></li>
                 <li><a class="dropdown-item" href="#">Sistema</a></li>
                 <li><a class="dropdown-item" href="#">Cliente</a></li>
-                <li><a class="dropdown-item" href="#">Tag</a></li>
-                <li><a class="dropdown-item" href="#">Status</a></li>
+                <li><a class="dropdown-item" href="tag/newTag.php">Tag</a></li>
+                <li><a class="dropdown-item" href="">Status</a></li>
                 <li><a class="dropdown-item" href="sla/newSla.php">SLA</a></li>
                 <li><a class="dropdown-item" href="">Categoria</a></li>
                 <li><a class="dropdown-item" href="#">Macro</a></li>
@@ -30,8 +30,8 @@
                 <li><a class="dropdown-item" href="#">Usuário</a></li>
                 <li><a class="dropdown-item" href="#">Sistema</a></li>
                 <li><a class="dropdown-item" href="#">Cliente</a></li>
-                <li><a class="dropdown-item" href="#">Tag</a></li>
-                <li><a class="dropdown-item" href="#">Status</a></li>
+                <li><a class="dropdown-item" href="tag/viewTag.php">Tag</a></li>
+                <li><a class="dropdown-item" href="">Status</a></li>
                 <li><a class="dropdown-item" href="sla/viewSla.php">SLA</a></li>
                 <li><a class="dropdown-item" href="">Categoria</a></li>
                 <li><a class="dropdown-item" href="#">Macro</a></li>
