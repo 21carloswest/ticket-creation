@@ -18,7 +18,7 @@
                 <li><a class="dropdown-item" href="status/newStatus.php">Status</a></li>
                 <li><a class="dropdown-item" href="sla/newSla.php">SLA</a></li>
                 <li><a class="dropdown-item" href="">Categoria</a></li>
-                <li><a class="dropdown-item" href="#">Macro</a></li>
+                <li><a class="dropdown-item" href="macro/newMacro.php">Macro</a></li>
                 <li><a class="dropdown-item" href="#">Equipe</a></li>
             </ul>
         </div>
@@ -34,7 +34,7 @@
                 <li><a class="dropdown-item" href="status/viewStatus.php">Status</a></li>
                 <li><a class="dropdown-item" href="sla/viewSla.php">SLA</a></li>
                 <li><a class="dropdown-item" href="">Categoria</a></li>
-                <li><a class="dropdown-item" href="#">Macro</a></li>
+                <li><a class="dropdown-item" href="macro/viewMacro.php">Macro</a></li>
                 <li><a class="dropdown-item" href="#">Equipe</a></li>
             </ul>
         </div>
