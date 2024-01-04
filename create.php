@@ -40,6 +40,15 @@ foreach($consultaTag as $consulta) {
 }
 
 
+$aftermathStatus = "";
+
+$consultaStatus = Select::getStatusAtivos();
+
+foreach($consultaStatus as $consulta) {
+    $aftermathStatus .= "<option value='".$consulta->ID_STATUS."'>$consulta->NOME_STATUS</option>";
+}
+
+
 include __DIR__."/includes/header.php";
 include __DIR__."/includes/form.php";
 include __DIR__."/includes/footer.php";

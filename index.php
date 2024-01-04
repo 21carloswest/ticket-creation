@@ -4,10 +4,6 @@ require __DIR__."/vendor/autoload.php";
 
 use \App\Entity\Ticket;
 
-
-
-
-
 $consTicket = Ticket::getTickets();
 $resultado = '';
 
