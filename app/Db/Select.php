@@ -41,4 +41,16 @@ class Select{
     public static function getTag($table, $id){
         return ((new Database('tag'))->select($table, 'ID_TAG='.$id))->fetchObject(self::class);
     }
+
+    public static function getStatus($table = 'status', $where =null, $order = null, $limit = null, $fields="*"){
+        return ((new Database('status'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getStatusAtivos($table = 'status', $where= "`ATIVO_STATUS` = '1'", $order = null, $limit = null, $fields="*"){
+        return ((new Database('status'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getOneStatus($table, $id){
+        return ((new Database('status'))->select($table, 'ID_STATUS='.$id))->fetchObject(self::class);
+    }
 }

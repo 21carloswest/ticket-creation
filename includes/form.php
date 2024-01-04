@@ -7,9 +7,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="status">Status</label>
                     <select for="status" class="form-control" id="status" name="status">
-                        <option value="0">Sem solução no suporte</option>
-                        <option value="1">Com equipe de desenvolvimento</option>
-                        <option value="3">Resolvido</option>
+                        <?=$aftermathStatus?>
                     </select>
                 </div>
                 <div class="mb-3">
