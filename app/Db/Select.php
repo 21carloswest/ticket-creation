@@ -58,9 +58,9 @@ class Select{
         return ((new Database('status'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
     }
 
-    /*public static function getStatusAtivos($table = 'status', $where= "`ATIVO_STATUS` = '1'", $order = null, $limit = null, $fields="*"){
-        return ((new Database('status'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
-    } */
+    /*public static function getMacroAtivos($table = 'macro', $where= "`ATIVO_MACRO` = '1'", $order = null, $limit = null, $fields="*"){
+        return ((new Database('macro'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    } será implementado no ticket*/
 
     public static function getMacro($table, $id){
         return ((new Database('macro'))->select($table, 'ID_MACRO='.$id))->fetchObject(self::class);
