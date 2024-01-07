@@ -31,7 +31,9 @@ Class Ticket{
 
     public $date;
 
-    public function __construct($title = null, $status = null , $sys = null, $SLA = null, $GCM = null, $author  = null, $idCostumer = null, $tag=null){
+    public $idCategory;
+
+    public function __construct($title = null, $status = null , $sys = null, $SLA = null, $GCM = null, $author  = null, $idCostumer = null, $tag=null, $idCategory = null){
 
         $this->title=$title;
         $this->status=$status;
@@ -41,7 +43,7 @@ Class Ticket{
         $this->author=$author;
         $this->idCostumer=$idCostumer;
         $this->tag=$tag;
-
+        $this->idCategory=$idCategory;
     }
 
 
@@ -59,7 +61,8 @@ Class Ticket{
             'data'=>$this->date,
             'idResponsavel'=>$this->author,
             'idCliente'=>$this->idCostumer,
-            'idTag'=>$this->tag
+            'idTag'=>$this->tag,
+            'idCategoria'=>$this->idCategory
         ]);
         return true;
 

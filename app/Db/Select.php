@@ -65,4 +65,16 @@ class Select{
     public static function getMacro($table, $id){
         return ((new Database('macro'))->select($table, 'ID_MACRO='.$id))->fetchObject(self::class);
     }
+
+    public static function getCategories($table = 'categoria', $where =null, $order = null, $limit = null, $fields="*"){
+        return ((new Database('categoria'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getCategoriesAtivas($table = 'categoria', $where= "`ATIVO_CATEGORIA` = '1'", $order = null, $limit = null, $fields="*"){
+        return ((new Database('categoria'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getCategory($table, $id){
+        return ((new Database('categoria'))->select($table, 'ID_CATEGORIA='.$id))->fetchObject(self::class);
+    }
 }

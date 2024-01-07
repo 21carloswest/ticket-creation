@@ -17,7 +17,7 @@
                 <li><a class="dropdown-item" href="tag/newTag.php">Tag</a></li>
                 <li><a class="dropdown-item" href="status/newStatus.php">Status</a></li>
                 <li><a class="dropdown-item" href="sla/newSla.php">SLA</a></li>
-                <li><a class="dropdown-item" href="">Categoria</a></li>
+                <li><a class="dropdown-item" href="category/newCategory.php">Categoria</a></li>
                 <li><a class="dropdown-item" href="macro/newMacro.php">Macro</a></li>
                 <li><a class="dropdown-item" href="#">Equipe</a></li>
             </ul>
@@ -33,7 +33,7 @@
                 <li><a class="dropdown-item" href="tag/viewTag.php">Tag</a></li>
                 <li><a class="dropdown-item" href="status/viewStatus.php">Status</a></li>
                 <li><a class="dropdown-item" href="sla/viewSla.php">SLA</a></li>
-                <li><a class="dropdown-item" href="">Categoria</a></li>
+                <li><a class="dropdown-item" href="category/viewCategory.php">Categoria</a></li>
                 <li><a class="dropdown-item" href="macro/viewMacro.php">Macro</a></li>
                 <li><a class="dropdown-item" href="#">Equipe</a></li>
             </ul>

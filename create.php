@@ -8,7 +8,7 @@ use App\Entity\Description;
 
 if(isset($_POST["title"], /*$_POST['description'], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["author"], $_POST["costumer"], $_POST["tag"]*/)) {
 
-    $ticket = new Ticket($_POST["title"], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["GCM"], $_POST["author"], $_POST["costumer"], $_POST["tag"]);
+    $ticket = new Ticket($_POST["title"], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["GCM"], $_POST["author"], $_POST["costumer"], $_POST["tag"], $_POST['category']);
     $ticket->createTicket();
 
     $desc = new Description($_POST['description']);
@@ -46,6 +46,14 @@ $consultaStatus = Select::getStatusAtivos();
 
 foreach($consultaStatus as $consulta) {
     $aftermathStatus .= "<option value='".$consulta->ID_STATUS."'>$consulta->NOME_STATUS</option>";
+}
+
+$aftermathCategory = "";
+
+$consultaCategory = Select::getCategoriesAtivas();
+
+foreach($consultaCategory as $consulta) {
+    $aftermathCategory .= "<option value='".$consulta->ID_CATEGORIA	."'>$consulta->DESCRICAO_CATEGORIA</option>";
 }
 
 
