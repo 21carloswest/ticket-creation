@@ -13,12 +13,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="sys">Sistema</label>
                     <select for="sys" class="form-control" id="sys" name="sys">
-                        <option value="0">Quero Faturar</option>
-                        <option value="1">Parceiros</option>
-                        <option value="3">Diamond</option>
-                        <option value="4">Sispred</option>
-                        <option value="5">Factoring</option>
-                        <option value="6">CRM</option>
+                        <?=$aftermathSys?>
                     </select>
                 </div>
 

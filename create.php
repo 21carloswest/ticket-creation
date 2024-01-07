@@ -48,12 +48,22 @@ foreach($consultaStatus as $consulta) {
     $aftermathStatus .= "<option value='".$consulta->ID_STATUS."'>$consulta->NOME_STATUS</option>";
 }
 
+
 $aftermathCategory = "";
 
 $consultaCategory = Select::getCategoriesAtivas();
 
 foreach($consultaCategory as $consulta) {
     $aftermathCategory .= "<option value='".$consulta->ID_CATEGORIA	."'>$consulta->DESCRICAO_CATEGORIA</option>";
+}
+
+
+$aftermathSys = "";
+
+$consultaSys = Select::getSysAtivos();
+
+foreach($consultaSys as $consulta) {
+    $aftermathSys .= "<option value='".$consulta->ID_SISTEMA."'>$consulta->NOME_SISTEMA</option>";
 }
 
 

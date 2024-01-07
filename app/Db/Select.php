@@ -77,4 +77,16 @@ class Select{
     public static function getCategory($table, $id){
         return ((new Database('categoria'))->select($table, 'ID_CATEGORIA='.$id))->fetchObject(self::class);
     }
+
+    public static function getSys($table = 'sistema', $where =null, $order = null, $limit = null, $fields="*"){
+        return ((new Database('sistema'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getSysAtivos($table = 'sistema', $where= "`ATIVO_SISTEMA` = '1'", $order = null, $limit = null, $fields="*"){
+        return ((new Database('sistema'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getOneSys($table, $id){
+        return ((new Database('sistema'))->select($table, 'ID_SISTEMA='.$id))->fetchObject(self::class);
+    }
 }
