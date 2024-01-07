@@ -101,4 +101,16 @@ class Select{
     public static function getTeam($table, $id){
         return ((new Database('equipe'))->select($table, 'ID_EQUIPE='.$id))->fetchObject(self::class);
     }
+
+    public static function getUsers($table = 'usuario', $where =null, $order = null, $limit = null, $fields="*"){
+        return ((new Database('usuario'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getUsersAtivos($table = 'usuario', $where= "`ATIVO_USUARIO` = '1'", $order = null, $limit = null, $fields="*"){
+        return ((new Database('usuario'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getUser($table, $id){
+        return ((new Database('usuario'))->select($table, 'ID_USUARIO='.$id))->fetchObject(self::class);
+    }
 }

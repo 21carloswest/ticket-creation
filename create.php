@@ -67,6 +67,14 @@ foreach($consultaSys as $consulta) {
 }
 
 
+$aftermathUser = "";
+
+$consultaUser = Select::getUsersAtivos();
+
+foreach($consultaUser as $consulta) {
+    $aftermathUser .= "<option value='".$consulta->ID_USUARIO."'>$consulta->NOME_USUARIO</option>";
+}
+
 include __DIR__."/includes/header.php";
 include __DIR__."/includes/form.php";
 include __DIR__."/includes/footer.php";

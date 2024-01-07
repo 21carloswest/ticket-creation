@@ -11,7 +11,7 @@
                 Cadastro
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Usuário</a></li>
+                <li><a class="dropdown-item" href="user/newUser.php">Usuário</a></li>
                 <li><a class="dropdown-item" href="sys/newSys.php">Sistema</a></li>
                 <li><a class="dropdown-item" href="#">Cliente</a></li>
                 <li><a class="dropdown-item" href="tag/newTag.php">Tag</a></li>
@@ -27,7 +27,7 @@
                 Lista
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Usuário</a></li>
+                <li><a class="dropdown-item" href="user/viewUser.php">Usuário</a></li>
                 <li><a class="dropdown-item" href="sys/viewSys.php">Sistema</a></li>
                 <li><a class="dropdown-item" href="#">Cliente</a></li>
                 <li><a class="dropdown-item" href="tag/viewTag.php">Tag</a></li>

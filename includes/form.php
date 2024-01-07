@@ -34,12 +34,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="author">Responsável</label>
                     <select for="author" class="form-control" id="author"name="author">
-                        <option value="0">Atendente bagre</option>
-                        <option value="1">Atendente bagre 2</option>
-                        <option value="3">Atendente bagre 3</option>
-                        <option value="4">Atendente bagre 4</option>
-                        <option value="5">Atendente bagre 5</option>
-                        <option value="6">Atendente bagre 6</option>
+                        <?=$aftermathUser?>
                     </select>
                 </div>
                 <div class="mb-3">
