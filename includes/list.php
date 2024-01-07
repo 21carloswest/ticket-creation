@@ -19,7 +19,7 @@
                 <li><a class="dropdown-item" href="sla/newSla.php">SLA</a></li>
                 <li><a class="dropdown-item" href="category/newCategory.php">Categoria</a></li>
                 <li><a class="dropdown-item" href="macro/newMacro.php">Macro</a></li>
-                <li><a class="dropdown-item" href="#">Equipe</a></li>
+                <li><a class="dropdown-item" href="team/newTeam.php">Equipe</a></li>
             </ul>
         </div>
         <div class="dropdown">
@@ -35,7 +35,7 @@
                 <li><a class="dropdown-item" href="sla/viewSla.php">SLA</a></li>
                 <li><a class="dropdown-item" href="category/viewCategory.php">Categoria</a></li>
                 <li><a class="dropdown-item" href="macro/viewMacro.php">Macro</a></li>
-                <li><a class="dropdown-item" href="#">Equipe</a></li>
+                <li><a class="dropdown-item" href="team/viewTeam.php">Equipe</a></li>
             </ul>
         </div>
     </div>

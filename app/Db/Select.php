@@ -89,4 +89,16 @@ class Select{
     public static function getOneSys($table, $id){
         return ((new Database('sistema'))->select($table, 'ID_SISTEMA='.$id))->fetchObject(self::class);
     }
+
+    public static function getTeams($table = 'equipe', $where =null, $order = null, $limit = null, $fields="*"){
+        return ((new Database('equipe'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getTeamsAtivos($table = 'equipe', $where= "`ATIVO_EQUIPE` = '1'", $order = null, $limit = null, $fields="*"){
+        return ((new Database('equipe'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    }
+
+    public static function getTeam($table, $id){
+        return ((new Database('equipe'))->select($table, 'ID_EQUIPE='.$id))->fetchObject(self::class);
+    }
 }
