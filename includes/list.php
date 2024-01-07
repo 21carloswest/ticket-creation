@@ -13,7 +13,7 @@
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="user/newUser.php">Usuário</a></li>
                 <li><a class="dropdown-item" href="sys/newSys.php">Sistema</a></li>
-                <li><a class="dropdown-item" href="#">Cliente</a></li>
+                <li><a class="dropdown-item" href="costumer/newCostumer.php">Cliente</a></li>
                 <li><a class="dropdown-item" href="tag/newTag.php">Tag</a></li>
                 <li><a class="dropdown-item" href="status/newStatus.php">Status</a></li>
                 <li><a class="dropdown-item" href="sla/newSla.php">SLA</a></li>
@@ -29,7 +29,7 @@
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="user/viewUser.php">Usuário</a></li>
                 <li><a class="dropdown-item" href="sys/viewSys.php">Sistema</a></li>
-                <li><a class="dropdown-item" href="#">Cliente</a></li>
+                <li><a class="dropdown-item" href="costumer/viewCostumer.php">Cliente</a></li>
                 <li><a class="dropdown-item" href="tag/viewTag.php">Tag</a></li>
                 <li><a class="dropdown-item" href="status/viewStatus.php">Status</a></li>
                 <li><a class="dropdown-item" href="sla/viewSla.php">SLA</a></li>
