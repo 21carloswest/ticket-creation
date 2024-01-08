@@ -1,7 +1,7 @@
 <main>
     <section>
 
-        <h3 class="mt-3">Ticket nº: <?=$obTicket->id.". Criado em ".$obTicket->data?></h3>
+        <h3 class="mt-3"><?=$obTicket->id." ".date("d/m/Y à\s H:i", strtotime($obTicket->data))?></h3>
 
         <form method="POST" class="d-flex flex-row">
 
@@ -60,16 +60,13 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-column col-md-10 navbar-nav-scroll">
+            <div class="d-flex flex-column col-md-10 navbar-nav-scroll px-3">
                 <div class="mb-3">
                     <label class="form-label" for="title">Título</label>
                     <input class="form-control" type = "text" id="title"name="title">
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label" for="description">Descrição</label>
-                    <textarea class="form-control" name="description" id="description" rows="15"></textarea>
-                </div>
+
                 <?= $aftermath?>
                 <div class="align-self-end">
                     <button type="button"class="btn btn-primary me-2" onclick="window.location='index.php'">Voltar</button>
