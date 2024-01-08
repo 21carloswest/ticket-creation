@@ -1,7 +1,7 @@
-<h3>Nova Tag</h3>
+<h3>Novo sistema</h3>
 <form method="POST">
-    <label for="TAG_DESC" class="form-label">Descrição da Tag</label>
-      <input type="text" class="form-control"id="TAG_DESC" name="TAG_DESC">
+    <label for="sysName" class="form-label">Nome do sistema</label>
+      <input type="text" class="form-control" id="sysName" name="sysName">
       <button type="submit" class="btn btn-success">Salvar</button>
       <button type="button"class="btn btn-primary me-2" onclick="window.location='/ticket-creation'">Voltar</button>
 </form>

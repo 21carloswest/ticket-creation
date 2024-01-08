@@ -1,0 +1,21 @@
+<h3>Editar equipe</h3>
+<form method="POST">
+    <label for="teamName" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="teamName" value='<?=$obTeam->NOME_EQUIPE?>' name="teamName">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="ativo" id="ativo1" value='1' checked>
+        <label class="form-check-label" for="ativo1">
+          Ativo
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="ativo" value='0' id="ativo2">
+        <label class="form-check-label" for="ativo2">
+          Inativo
+        </label>
+      </div>
+      <div>
+      <button type="submit" class="btn btn-success">Salvar</button>
+      <button type="button"class="btn btn-primary me-2" onclick="window.location='../../ticket-creation/team/viewTeam.php'">Voltar</button>
+      </div>
+</form>

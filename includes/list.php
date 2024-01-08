@@ -11,15 +11,15 @@
                 Cadastro
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Usuário</a></li>
-                <li><a class="dropdown-item" href="#">Sistema</a></li>
-                <li><a class="dropdown-item" href="#">Cliente</a></li>
+                <li><a class="dropdown-item" href="user/newUser.php">Usuário</a></li>
+                <li><a class="dropdown-item" href="sys/newSys.php">Sistema</a></li>
+                <li><a class="dropdown-item" href="costumer/newCostumer.php">Cliente</a></li>
                 <li><a class="dropdown-item" href="tag/newTag.php">Tag</a></li>
                 <li><a class="dropdown-item" href="status/newStatus.php">Status</a></li>
                 <li><a class="dropdown-item" href="sla/newSla.php">SLA</a></li>
-                <li><a class="dropdown-item" href="">Categoria</a></li>
+                <li><a class="dropdown-item" href="category/newCategory.php">Categoria</a></li>
                 <li><a class="dropdown-item" href="macro/newMacro.php">Macro</a></li>
-                <li><a class="dropdown-item" href="#">Equipe</a></li>
+                <li><a class="dropdown-item" href="team/newTeam.php">Equipe</a></li>
             </ul>
         </div>
         <div class="dropdown">
@@ -27,15 +27,15 @@
                 Lista
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Usuário</a></li>
-                <li><a class="dropdown-item" href="#">Sistema</a></li>
-                <li><a class="dropdown-item" href="#">Cliente</a></li>
+                <li><a class="dropdown-item" href="user/viewUser.php">Usuário</a></li>
+                <li><a class="dropdown-item" href="sys/viewSys.php">Sistema</a></li>
+                <li><a class="dropdown-item" href="costumer/viewCostumer.php">Cliente</a></li>
                 <li><a class="dropdown-item" href="tag/viewTag.php">Tag</a></li>
                 <li><a class="dropdown-item" href="status/viewStatus.php">Status</a></li>
                 <li><a class="dropdown-item" href="sla/viewSla.php">SLA</a></li>
-                <li><a class="dropdown-item" href="">Categoria</a></li>
+                <li><a class="dropdown-item" href="category/viewCategory.php">Categoria</a></li>
                 <li><a class="dropdown-item" href="macro/viewMacro.php">Macro</a></li>
-                <li><a class="dropdown-item" href="#">Equipe</a></li>
+                <li><a class="dropdown-item" href="team/viewTeam.php">Equipe</a></li>
             </ul>
         </div>
     </div>

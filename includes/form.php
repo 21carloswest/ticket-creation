@@ -13,12 +13,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="sys">Sistema</label>
                     <select for="sys" class="form-control" id="sys" name="sys">
-                        <option value="0">Quero Faturar</option>
-                        <option value="1">Parceiros</option>
-                        <option value="3">Diamond</option>
-                        <option value="4">Sispred</option>
-                        <option value="5">Factoring</option>
-                        <option value="6">CRM</option>
+                        <?=$aftermathSys?>
                     </select>
                 </div>
 
@@ -30,24 +25,24 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="GCM">Nº GCM</label>
-                    <input class="form-control" type="number" min="0" id="GCM" name="GCM">
+                    <label class="form-label" for="category">Categoria</label>
+                    <select for="category" class="form-control" id="category" name="category">
+                        <?=$aftermathCategory?>
+                    </select>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="author">Responsável</label>
                     <select for="author" class="form-control" id="author"name="author">
-                        <option value="0">Atendente bagre</option>
-                        <option value="1">Atendente bagre 2</option>
-                        <option value="3">Atendente bagre 3</option>
-                        <option value="4">Atendente bagre 4</option>
-                        <option value="5">Atendente bagre 5</option>
-                        <option value="6">Atendente bagre 6</option>
+                        <?=$aftermathUser?>
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label class="form-label" for="costumer">Cliente</label>
-                    <input for="costumer" class="form-control" id="costumer"name="costumer">
+                    <select for="costumer" class="form-control" id="costumer"name="costumer">
+                        <?=$aftermathCostumer?>
+                    </select>
                 </div>
 
                 <div class="mb-3">

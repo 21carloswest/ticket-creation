@@ -8,7 +8,7 @@ use App\Entity\Description;
 
 if(isset($_POST["title"], /*$_POST['description'], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["author"], $_POST["costumer"], $_POST["tag"]*/)) {
 
-    $ticket = new Ticket($_POST["title"], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["GCM"], $_POST["author"], $_POST["costumer"], $_POST["tag"]);
+    $ticket = new Ticket($_POST["title"], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["GCM"], $_POST["author"], $_POST["costumer"], $_POST["tag"], $_POST['category']);
     $ticket->createTicket();
 
     $desc = new Description($_POST['description']);
@@ -48,6 +48,40 @@ foreach($consultaStatus as $consulta) {
     $aftermathStatus .= "<option value='".$consulta->ID_STATUS."'>$consulta->NOME_STATUS</option>";
 }
 
+
+$aftermathCategory = "";
+
+$consultaCategory = Select::getCategoriesAtivas();
+
+foreach($consultaCategory as $consulta) {
+    $aftermathCategory .= "<option value='".$consulta->ID_CATEGORIA	."'>$consulta->DESCRICAO_CATEGORIA</option>";
+}
+
+
+$aftermathSys = "";
+
+$consultaSys = Select::getSysAtivos();
+
+foreach($consultaSys as $consulta) {
+    $aftermathSys .= "<option value='".$consulta->ID_SISTEMA."'>$consulta->NOME_SISTEMA</option>";
+}
+
+
+$aftermathUser = "";
+
+$consultaUser = Select::getUsersAtivos();
+
+foreach($consultaUser as $consulta) {
+    $aftermathUser .= "<option value='".$consulta->ID_USUARIO."'>$consulta->NOME_USUARIO</option>";
+}
+
+$aftermathCostumer = "";
+
+$consultaCostumer = Select::getCostumersAtivos();
+
+foreach($consultaCostumer as $consulta) {
+    $aftermathCostumer .= "<option value='".$consulta->ID_CLIENTE."'>$consulta->EMPRESA</option>";
+}
 
 include __DIR__."/includes/header.php";
 include __DIR__."/includes/form.php";
