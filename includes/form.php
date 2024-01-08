@@ -3,7 +3,7 @@
 
         <form method="POST" class="d-flex flex-row">
 
-            <div class="d-flex flex-column table-overflow me-3 px-3 text-light mh-100 shadow" style="background-color: #474787">
+            <div class="d-flex flex-column table-overflow me-3 px-3 text-light mh-100 min-vw-20 shadow" style="background-color: #474787">
                 <div class="mb-3">
                     <label class="form-label" for="status">Status</label>
                     <select for="status" class="form-control" id="status" name="status">

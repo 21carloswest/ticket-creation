@@ -1,22 +1,21 @@
 <section>
 
-<table class="table bg-light mt-3">
+    <button class="btn btn-success" onclick="window.location='newTag.php'">Nova</button>
+    <button type="button" class="btn btn-primary me-2" onclick="window.location='/ticket-creation'">Voltar</button>
 
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Ativo</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
+    <table class="table bg-light mt-3">
 
-    <tbody>
-        <?=$aftermath?>
-    </tbody>
-</table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Ativo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
-<button class="btn btn-success" onclick="window.location='newTag.php'">Nova</button>
-<button type="button" class="btn btn-primary me-2" onclick="window.location='/ticket-creation'">Voltar</button>
-
-
+        <tbody>
+            <?=$aftermath?>
+        </tbody>
+    </table>
+    
 </section>
