@@ -37,9 +37,12 @@
                         <?=$aftermathUser?>
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label class="form-label" for="costumer">Cliente</label>
-                    <input for="costumer" class="form-control" id="costumer"name="costumer">
+                    <select for="costumer" class="form-control" id="costumer"name="costumer">
+                        <?=$aftermathCostumer?>
+                    </select>
                 </div>
 
                 <div class="mb-3">

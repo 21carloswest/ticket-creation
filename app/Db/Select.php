@@ -114,15 +114,15 @@ class Select{
         return ((new Database('usuario'))->select($table, 'ID_USUARIO='.$id))->fetchObject(self::class);
     }
 
-    public static function getUsers($table = 'usuario', $where =null, $order = null, $limit = null, $fields="*"){
-        return ((new Database('usuario'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    public static function getCostumers($table = 'cliente', $where =null, $order = null, $limit = null, $fields="*"){
+        return ((new Database('cliente'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
     }
 
-    public static function getUsersAtivos($table = 'usuario', $where= "`ATIVO_USUARIO` = '1'", $order = null, $limit = null, $fields="*"){
-        return ((new Database('usuario'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    public static function getCostumersAtivos($table = 'cliente', $where= "`ATIVO_CLIENTE` = '1'", $order = null, $limit = null, $fields="*"){
+        return ((new Database('cliente'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
     }
 
-    public static function getUser($table, $id){
-        return ((new Database('usuario'))->select($table, 'ID_USUARIO='.$id))->fetchObject(self::class);
+    public static function getCostumer($table, $id){
+        return ((new Database('cliente'))->select($table, 'ID_CLIENTE='.$id))->fetchObject(self::class);
     }
 }

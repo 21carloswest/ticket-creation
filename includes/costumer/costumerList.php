@@ -1,6 +1,6 @@
 <section>
 
-<button class="btn btn-success" onclick="window.location='newUser.php'">Nova</button>
+<button class="btn btn-success" onclick="window.location='newCostumer.php'">Nova</button>
 <button type="button" class="btn btn-primary me-2" onclick="window.location='/ticket-creation'">Voltar</button>
 
 <table class="table bg-light mt-3">
