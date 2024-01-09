@@ -25,6 +25,11 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label" for="GCM">Nº GCM</label>
+                    <input class="form-control" type="number" min="0" id="GCM"name="GCM">
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label" for="category">Categoria</label>
                     <select for="category" class="form-control" id="category" name="category">
                         <?=$aftermathCategory?>

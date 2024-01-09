@@ -40,8 +40,8 @@
   </div>
 
   <div class="mb-3">
-    <label for="company" class="form-label">Link</label>
-    <input type="text" class="form-control" id="company" name="company">
+    <label for="link" class="form-label">Link</label>
+    <input type="text" class="form-control" id="link" name="link">
   </div>
 
   <div class="row mb-3">
