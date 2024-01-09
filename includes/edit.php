@@ -79,8 +79,8 @@
                             <form method=POST>
                                 <div class="modal-body">
                                         <div class="mb-3">
-                                            <label for="desc" class="col-form-label">Descrição:</label>
-                                            <textarea class="form-control" id="desc" name="desc" rows="14"></textarea>
+                                            <label for="descEdit" class="col-form-label">Descrição:</label>
+                                            <textarea class="form-control" id="descEdit" name="descEdit" rows="14"></textarea>
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -91,9 +91,34 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel1">Nova interação</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form method=POST>
+                                <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="newDesc" class="col-form-label">Descrição:</label>
+                                            <textarea class="form-control" id="newDec" name="newDesc" rows="14"></textarea>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
                 </div>
                 <div class="align-self-end mt-3">
-                <button type="button" class="btn btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="bi bi-pencil-square"></i></button>
+                <button type="button" class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class="bi bi-plus-circle"></i></button>
+                <button type="button" class="btn btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pencil-square"></i></button>
                 <button type="button" class="btn btn-primary me-2" onclick="window.location='index.php'">Voltar</button>
                 <button type="submit" class="btn btn-success">Salvar</button>
             </div>

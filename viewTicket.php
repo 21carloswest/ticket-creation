@@ -87,8 +87,8 @@ foreach($consultaStatus as $consulta) {
     $aftermathStatus .= "<option value='".$consulta->ID_STATUS."'>$consulta->NOME_STATUS</option>";
 }
 
-if(isset($_POST["desc"])){
-    $desc = new Description ($_POST["desc"], $_GET["id"]);
+if(isset($_POST["descEdit"])){
+    $desc = new Description ($_POST["descEdit"], $_GET["id"]);
     $lastId = Select::getLastId($_GET["id"]);
     $desc->atualizarDesc($lastId->id);
 
@@ -96,6 +96,17 @@ if(isset($_POST["desc"])){
 
     exit;
 }
+
+if(isset($_POST["newDesc"])){
+
+    $desc = new Description ($_POST["newDesc"], $_GET["id"]);
+    $desc->createDescription();
+
+    header("location: /ticket-creation/viewTicket.php?id=".$_GET['id']."&status=success");
+
+    exit;
+}
+
 
 include __DIR__."/includes/header.php";
 include __DIR__."/includes/edit.php";
