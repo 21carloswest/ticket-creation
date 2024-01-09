@@ -3,7 +3,8 @@
 require __DIR__."/vendor/autoload.php";
 
 use \App\Db\Select;
-
+use \App\Entity\Ticket;
+use \App\Entity\Description;
 
 if(!isset($_GET['id']) or !is_numeric($_GET['id'])){
     header('location: index.php?status=error');
@@ -20,8 +21,8 @@ $obDescricao = Select::getDescription('descricao', $_GET['id']);
 
 if(isset($_POST["title"], /*$_POST['description'], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["author"], $_POST["costumer"], $_POST["tag"]*/)) {
 
-    //$ticket = new Ticket($_POST["title"], $_POST['description'], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["GCM"], $_POST["author"], $_POST["costumer"], $_POST["tag"]);
-    //$ticket->createTicket();
+    $ticket = new Ticket($_POST["title"], $_POST['description'], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["GCM"], $_POST["author"], $_POST["costumer"], $_POST["tag"]);
+    //$ticket->atualizarTicket();
 
     //$obTicket->title= $_POST['title'];
     //$obTicket->= $_POST['descricao'];
