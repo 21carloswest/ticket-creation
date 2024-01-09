@@ -19,7 +19,7 @@ Class SLA {
 
     public function createSLA(){
 
-        $obDB = new Database('SLA');
+        $obDB = new Database('sla');
 
         $this->id_SLA = $obDB->insert([
             'DESCRIÇAO_SLA	'=>$this->name,
@@ -30,7 +30,7 @@ Class SLA {
     }
 
     public function atualizarSLA($id){
-        return (new Database('SLA'))->update('SLA', 'ID_SLA = '."$id",[
+        return (new Database('sla'))->update('sla', 'ID_SLA = '."$id",[
                                                                     'DESCRIÇAO_SLA' => $this->name,
                                                                     'ATIVO_SLA'     => $this->ativo,
                                                                   ]);

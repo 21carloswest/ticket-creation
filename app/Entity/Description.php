@@ -6,7 +6,7 @@ use \App\Entity\Ticket;
 
 use \App\Db\Database;
 
-
+use \PDO;
 
 class Description extends Ticket{
 
@@ -18,9 +18,10 @@ class Description extends Ticket{
 
     public $idTicket;
 
-    public function __construct($description = null){
+    public function __construct($description, $idTicket){
 
         $this->description=$description;
+        $this->idTicket=$idTicket;
 
     }
 
@@ -38,8 +39,12 @@ class Description extends Ticket{
 
     }
 
-    public function setIdTicket($value){
-        $this->idTicket=$value;
+    public function atualizarDesc($idDesc){
+
+        return (new Database('descricao'))->update('descricao', 'id = '."$idDesc",[
+            'descricao'=>$this->description,
+            'data'=>$this->date
+          ]);
     }
 
 }

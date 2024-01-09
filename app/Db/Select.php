@@ -18,16 +18,16 @@ class Select{
         return ((new Database('descricao'))->select($table, 'idTicket='.$id, $order))->fetchAll(PDO::FETCH_CLASS,self::class);
     }
 
-    public static function getSLAs($table = 'SLA', $where =null, $order = null, $limit = null, $fields="*"){
-        return ((new Database('SLA'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    public static function getSLAs($table = 'sla', $where =null, $order = null, $limit = null, $fields="*"){
+        return ((new Database('sla'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
     }
 
-    public static function getSLAsAtiva($table = 'SLA', $where= "`ATIVO_SLA` = '1'", $order = null, $limit = null, $fields="*"){
-        return ((new Database('SLA'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
+    public static function getSLAsAtiva($table = 'sla', $where= "`ATIVO_SLA` = '1'", $order = null, $limit = null, $fields="*"){
+        return ((new Database('sla'))->select($table, $where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class));
     }
 
     public static function getSLA($table, $id){
-        return ((new Database('SLA'))->select($table, 'ID_SLA='.$id))->fetchObject(self::class);
+        return ((new Database('sla'))->select($table, 'ID_SLA='.$id))->fetchObject(self::class);
     }
 
     public static function getTags($table = 'tag', $where =null, $order = null, $limit = null, $fields="*"){
@@ -124,5 +124,9 @@ class Select{
 
     public static function getCostumer($table, $id){
         return ((new Database('cliente'))->select($table, 'ID_CLIENTE='.$id))->fetchObject(self::class);
+    }
+
+    public static function getLastId($id){
+        return ((new Database('descricao'))->select("descricao", 'idTicket = '.$id, "`data` DESC", "1", "`id`"))->fetchObject(self::class);
     }
 }
