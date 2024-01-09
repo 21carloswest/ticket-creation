@@ -47,9 +47,4 @@ class Description extends Ticket{
           ]);
     }
 
-    public static function getLastId($id){
-        return ((new Database('descricao'))->select("descricao", 'idTicket = '.$id, "`data` DESC", "1", "`id`")->fetchAll(PDO::FETCH_CLASS, self::class));
-
-    }
-
 }

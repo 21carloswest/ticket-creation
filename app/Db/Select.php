@@ -125,4 +125,8 @@ class Select{
     public static function getCostumer($table, $id){
         return ((new Database('cliente'))->select($table, 'ID_CLIENTE='.$id))->fetchObject(self::class);
     }
+
+    public static function getLastId($id){
+        return ((new Database('descricao'))->select("descricao", 'idTicket = '.$id, "`data` DESC", "1", "`id`"))->fetchObject(self::class);
+    }
 }

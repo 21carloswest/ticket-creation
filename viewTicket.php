@@ -23,7 +23,10 @@ if(!$obTicket instanceof Select){
     header('location: index.php?status=error');
 }
 
+if(isset($_GET['status'])){
+    $msg="Ação concluída com sucesso";
 
+}
 //Consulta da descricao
 
 $obDescricao = Select::getDescription('descricao', $_GET['id']);
@@ -86,10 +89,10 @@ foreach($consultaStatus as $consulta) {
 
 if(isset($_POST["desc"])){
     $desc = new Description ($_POST["desc"], $_GET["id"]);
-    $lastId = $desc->getLastId($_GET["id"]);
-    $desc->atualizarDesc($_POST["idDesc"]);
+    $lastId = Select::getLastId($_GET["id"]);
+    $desc->atualizarDesc($lastId->id);
 
-    //header("location: /ticket-creation/index.php?status=success");
+    header("location: /ticket-creation/viewTicket.php?id=".$_GET['id']."&status=success");
 
     exit;
 }
