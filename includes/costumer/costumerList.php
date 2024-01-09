@@ -7,11 +7,12 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Tag</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Cliente</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form>
+                <form method=POST>
+                    <div class="modal-body">
+                    
                         <div class="row mb-3">
 
                         <div class="col-md-6">
@@ -52,7 +53,7 @@
 
                         <div class="mb-3">
                             <label for="company" class="form-label">Link</label>
-                            <input type="text" class="form-control" id="company" name="company">
+                            <input type="text" class="form-control" id="link" name="link">
                         </div>
 
                         <div class="row mb-3">
@@ -66,12 +67,13 @@
                                 <input type="number" class="form-control" id="cod" name="cod">
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
-                </div>
+                    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

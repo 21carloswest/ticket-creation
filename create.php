@@ -80,7 +80,7 @@ $aftermathCostumer = "";
 $consultaCostumer = Select::getCostumersAtivos();
 
 foreach($consultaCostumer as $consulta) {
-    $aftermathCostumer .= "<option value='".$consulta->ID_CLIENTE."'>$consulta->EMPRESA</option>";
+    $aftermathCostumer .= "<option value='".$consulta->ID_CLIENTE."'>$consulta->NOME_CLIENTE</option>";
 }
 
 include __DIR__."/includes/header.php";

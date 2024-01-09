@@ -9,20 +9,18 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Usuário</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form>
+                <form method=POST>
+                    <div class="modal-body">
                         <div class="mb-3">
                             <label class="form-label" for="teamId">Equipe</label>
                             <select for="teamId" class="form-control" id="teamId" name="teamId">
                             <?=$aftermathUsers?>
                             </select>
                         </div>
-
                         <div class="mb-3">
                             <label for="name" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="name" name="name">
                         </div>
-
                         <div class="mb-3">
                             <label class="form-label" for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email">
@@ -32,12 +30,12 @@
                             <label class="form-label" for="ext">Ramal</label>
                             <input type="number" class="form-control" id="ext" name="ext">
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

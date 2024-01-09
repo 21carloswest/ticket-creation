@@ -22,7 +22,7 @@ if(isset($_POST["DESCRICAO_CATEGORIA"])){
   $category = new Category ($_POST["DESCRICAO_CATEGORIA"]);
   $category->createCategory();
 
-  header("location: /ticket-creation/index.php?status=success");
+  header("location: /ticket-creation/category/viewCategory.php?status=success");
 
   exit;
 }

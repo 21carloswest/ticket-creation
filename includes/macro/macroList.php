@@ -9,22 +9,24 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Macro</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form>
+                <form method=POST>
+                    <div class="modal-body">
+                        
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Titulo:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input type="text" class="form-control" id="recipient-name" name="title">
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Mensagem da Macro:</label>
-                            <textarea class="form-control" id="message-text" rows=12></textarea>
+                            <textarea class="form-control" id="message-text" rows=12 name="description"></textarea>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
-                </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -16,6 +16,14 @@ foreach($consultaSla as $sla){
                     <td><i class='bi bi-pencil'  style='cursor: pointer;' onclick="."window.location='editSla.php?id=$sla->ID_SLA'"."></i></td>
                   </tr>";
 }
+if(isset($_POST["SLA_DESC"])){
+  $sla = new Sla ($_POST["SLA_DESC"]);
+  $sla->createSLA();
+
+  header("location: /ticket-creation/sla/viewSla.php?status=success");
+
+  exit;
+}
 
 include __DIR__."/../includes/header.php";
 include __DIR__."/../includes/sla/slaList.php";
