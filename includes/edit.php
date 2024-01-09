@@ -1,7 +1,7 @@
 <main>
     <section>
 
-        <h3 class="mt-3"><?=$obTicket->id." ".date("d/m/Y à\s H:i", strtotime($obTicket->data))?></h3>
+        <p class="mt-3"><?="Ticket: ".$obTicket->id.". Data: ".date("d/m/Y à\s H:i", strtotime($obTicket->data))?></p>
 
         <form method="POST" class="d-flex flex-row">
 
@@ -66,14 +66,36 @@
                     <input class="form-control" type = "text" id="title"name="title">
                 </div>
 
-
                 <?= $aftermath?>
+
                 <div class="align-self-end">
-                    <button type="button"class="btn btn-primary me-2" onclick="window.location='index.php'">Voltar</button>
+                    <button type="button" class="btn btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="bi bi-pencil-square"></i></button>
+                    <button type="button" class="btn btn-primary me-2" onclick="window.location='index.php'">Voltar</button>
                     <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
-            </div>
-        </form>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Última Descrição</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form method=POST>
+                                <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="desc" class="col-form-label">Descrição:</label>
+                                            <textarea class="form-control" id="desc" name="desc" rows="14"></textarea>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
     </section>
 </main>

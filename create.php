@@ -8,11 +8,10 @@ use App\Entity\Description;
 
 if(isset($_POST["title"], /*$_POST['description'], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["author"], $_POST["costumer"], $_POST["tag"]*/)) {
 
-    $ticket = new Ticket($_POST["title"], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["GCM"], $_POST["author"], $_POST["costumer"], $_POST["tag"], $_POST['category']);
+    $ticket = new Ticket($_POST["title"], $_POST['status'], $_POST['sys'], $_POST['SLA'], $_POST["author"], $_POST["costumer"], $_POST["tag"], $_POST['category']);
     $ticket->createTicket();
 
-    $desc = new Description($_POST['description']);
-    $desc->setIdTicket($ticket->getID());
+    $desc = new Description($_POST['description'], $ticket->getID());
     $desc->createDescription();
 
     header("location: viewTicket.php?id=".$ticket->getID());

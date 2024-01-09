@@ -33,7 +33,7 @@ Class Ticket{
 
     public $idCategory;
 
-    public function __construct($title = null, $status = null , $sys = null, $SLA = null, $GCM = null, $author  = null, $idCostumer = null, $tag=null, $idCategory = null){
+    public function __construct($title = null, $status = null , $sys = null, $SLA = null, $author  = null, $idCostumer = null, $tag=null, $idCategory = null, $GCM = null){
 
         $this->title=$title;
         $this->status=$status;
