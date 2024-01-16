@@ -9,7 +9,8 @@ class Equipe extends Model
 {
     use HasFactory;
 
-    public function user(){
+    public function user()
+    {
         return $this->hasMany(User::class);
     }
 }
