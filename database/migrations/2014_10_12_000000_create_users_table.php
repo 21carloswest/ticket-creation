@@ -14,12 +14,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Equipe::class)->references('id')->on('equipes');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->foreignIdFor(Equipe::class);
-            $table->string('ramal');
-            $table->boolean('ativo');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -33,4 +31,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
+
 };
