@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Equipe;
 use Illuminate\Http\Request;
+use App\Http\Resources\EquipeResource;
 
 class EquipeController extends Controller
 {
@@ -13,7 +14,7 @@ class EquipeController extends Controller
      */
     public function index()
     {
-        return Equipe::all();
+        return EquipeResource::collection(Equipe::all());
     }
 
     /**
@@ -27,7 +28,6 @@ class EquipeController extends Controller
                     [
                         'nome' => 'required|string|max:255',
                         'ativo' => 'required|boolean',
-
                     ]),
             ]);
         return $equipe;
@@ -38,7 +38,7 @@ class EquipeController extends Controller
      */
     public function show(Equipe $equipe)
     {
-        return  $equipe;
+        return new EquipeResource($equipe);
     }
 
     /**
@@ -51,7 +51,7 @@ class EquipeController extends Controller
                 'nome' => 'sometimes|string|max:255',
                 'ativo' => 'sometimes|boolean',
             ]));
-        return $equipe;
+        return new EquipeResource($equipe);
     }
 
     /**
