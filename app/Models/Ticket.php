@@ -14,4 +14,8 @@ class Ticket extends Model
         return $this->hasMany(Interacao::class);
     }
 
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }
 }

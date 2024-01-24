@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CategoriaController;
 use App\Http\Controllers\Api\EquipeController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -24,6 +25,4 @@ Route::apiResource('equipes', EquipeController::class);
 /*Route::apiResource('equipes.users', UserController::class)
     ->scoped(['user' => 'equipe']);*/
 Route::apiResource('users', UserController::class);
-
-
-
+Route::apiResource('categorias', CategoriaController::class);

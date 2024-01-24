@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CategoriaResource;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -12,7 +14,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        return CategoriaResource::collection(Categoria::all());
     }
 
     /**
@@ -20,23 +22,34 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = Categoria::create(
+            [
+                ...$request->validate(
+                    [
+                        'nome' => 'required|string|max:255',
+                    ]),
+                'ativo' => '1'
+            ]);
+        return new CategoriaResource($categoria);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Categoria $categoria)
     {
-        //
+        return new CategoriaResource($categoria);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Categoria $categoria)
     {
-        //
+        $categoria->update($request->validate([
+                'nome' => 'sometimes|string|max:255',
+            ]));
+        return new CategoriaResource($categoria);
     }
 
     /**
