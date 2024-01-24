@@ -18,4 +18,9 @@ class Ticket extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
+
+    public function sistema()
+    {
+        return $this->belongsTo(Sistema::class);
+    }
 }
