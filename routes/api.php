@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\CategoriaController;
 use App\Http\Controllers\Api\EquipeController;
+use App\Http\Controllers\Api\SistemaController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,4 @@ Route::apiResource('equipes', EquipeController::class);
     ->scoped(['user' => 'equipe']);*/
 Route::apiResource('users', UserController::class);
 Route::apiResource('categorias', CategoriaController::class);
+Route::apiResource('sistemas', SistemaController::class);

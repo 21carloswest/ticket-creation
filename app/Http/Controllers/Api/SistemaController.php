@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\SistemaResource;
+use App\Models\Sistema;
 use Illuminate\Http\Request;
 
 class SistemaController extends Controller
@@ -12,7 +14,7 @@ class SistemaController extends Controller
      */
     public function index()
     {
-        //
+        return  SistemaResource::collection(Sistema::all());
     }
 
     /**
@@ -20,23 +22,35 @@ class SistemaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sistema = Sistema::create(
+            [
+                ...$request->validate(
+                    [
+                        'nome' => 'required|string|max:255',
+                    ]),
+                'ativo' => '1'
+            ]);
+        return new SistemaResource($sistema);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Sistema $sistema)
     {
-        //
+        return new SistemaResource($sistema);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Sistema $sistema)
     {
-        //
+        $sistema->update($request->validate([
+            'nome' => 'sometimes|string|max:255',
+            'ativo' => 'sometimes|boolean'
+        ]));
+        return new SistemaResource($sistema);
     }
 
     /**

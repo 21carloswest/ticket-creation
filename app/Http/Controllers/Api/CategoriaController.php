@@ -48,6 +48,7 @@ class CategoriaController extends Controller
     {
         $categoria->update($request->validate([
                 'nome' => 'sometimes|string|max:255',
+                'ativo' => 'sometimes|boolean'
             ]));
         return new CategoriaResource($categoria);
     }
