@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CategoriaController;
+use App\Http\Controllers\Api\ClienteController;
 use App\Http\Controllers\Api\EquipeController;
 use App\Http\Controllers\Api\SistemaController;
 use App\Http\Controllers\Api\UserController;
@@ -28,3 +29,4 @@ Route::apiResource('equipes', EquipeController::class);
 Route::apiResource('users', UserController::class);
 Route::apiResource('categorias', CategoriaController::class);
 Route::apiResource('sistemas', SistemaController::class);
+Route::apiResource('clientes', ClienteController::class);

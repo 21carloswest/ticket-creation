@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Sistema::class);
+            $table->foreignIdFor(Sistema::class)->references('id')->on('sistemas');
             $table->string('nome');
             $table->string('empresa');
             $table->string('email');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('link');
             $table->integer('cnpj');
             $table->integer('codigo');
+            $table->boolean('ativo');
             $table->timestamps();
         });
     }

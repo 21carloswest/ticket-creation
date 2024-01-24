@@ -14,6 +14,19 @@ class ClienteResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'nome' => $this->nome,
+            'empresa' => $this->empresa,
+            'email' => $this->email,
+            'telefone' => $this->telefone,
+            'celular' => $this->celular,
+            'link' => $this->link,
+            'cnpj' => $this->cnpj,
+            'codigo' => $this->codigo,
+            'ativo' => $this->ativo,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'sistema' => new SistemaResource($this->whenLoaded('sistema'))
+        ];
     }
 }

@@ -23,4 +23,9 @@ class Ticket extends Model
     {
         return $this->belongsTo(Sistema::class);
     }
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
+    }
 }
