@@ -20,7 +20,7 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class)->references('id')->on('users');
             $table->foreignIdFor(Cliente::class);
             $table->foreignIdFor(Categoria::class);
             $table->foreignIdFor(Sla::class);

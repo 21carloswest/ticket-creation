@@ -30,7 +30,7 @@ class EquipeController extends Controller
                         'ativo' => 'required|boolean',
                     ]),
             ]);
-        return $equipe;
+        return new EquipeResource($equipe);
     }
 
     /**
@@ -46,8 +46,7 @@ class EquipeController extends Controller
      */
     public function update(Request $request, Equipe $equipe)
     {
-        $equipe->update($request->validate(
-            [
+        $equipe->update($request->validate([
                 'nome' => 'sometimes|string|max:255',
                 'ativo' => 'sometimes|boolean',
             ]));

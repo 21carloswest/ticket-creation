@@ -21,7 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('equipes', EquipeController::class);
-Route::apiResource('equipes.users', UserController::class)
-    ->scoped(['user' => 'equipe']);
+/*Route::apiResource('equipes.users', UserController::class)
+    ->scoped(['user' => 'equipe']);*/
+Route::apiResource('users', UserController::class);
+
 
 

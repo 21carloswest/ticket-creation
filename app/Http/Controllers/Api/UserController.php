@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        return UserResource::collection(User::with('equipe')->get());
     }
 
     /**
@@ -21,23 +22,42 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create(
+            [
+                ...$request->validate(
+                    [
+                        'equipe_id' => 'required|integer',
+                        'name' => 'required|string|max:255',
+                        'email' => 'required|email|unique:App\Models\User,email',
+                        'password' => 'required|string|min:8',
+                    ]),
+                'ativo' => '1' //ao criar um usuário, ele é automaticamente ativado
+            ]);
+        return new UserResource($user);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
-        //
+        $user->load('equipe');
+        return new UserResource($user);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->validate([
+                'equipe_id' => 'sometimes|integer',
+                'name' => 'sometimes|string|max:255',
+                'email' => 'sometimes|email|unique:App\Models\User,email,'.$user->id,
+                'password' => 'sometimes|string|min:8',
+                'ativo' => 'sometimes|boolean',
+            ]));
+        return new UserResource($user);
     }
 
     /**
