@@ -33,6 +33,7 @@ class UserController extends Controller
                     ]),
                 'ativo' => '1' //ao criar um usuário, ele é automaticamente ativado
             ]);
+            $user->load('equipe');
         return new UserResource($user);
     }
 
@@ -57,6 +58,7 @@ class UserController extends Controller
                 'password' => 'sometimes|string|min:8',
                 'ativo' => 'sometimes|boolean',
             ]));
+        $user->load('equipe');
         return new UserResource($user);
     }
 
