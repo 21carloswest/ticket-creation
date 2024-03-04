@@ -9,23 +9,25 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    public function interacao()
+    protected $guarded = [];
+    
+    protected $fillable = [
+        'titulo',
+        'user_id'
+    ];
+
+    public function user()
     {
-        return $this->hasMany(Interacao::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function categoria()
+    public function descricao()
     {
-        return $this->belongsTo(Categoria::class);
+        return $this->hasMany(Descricao::class);
     }
 
-    public function sistema()
+    public function status()
     {
-        return $this->belongsTo(Sistema::class);
-    }
-
-    public function cliente()
-    {
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(Status::class);
     }
 }

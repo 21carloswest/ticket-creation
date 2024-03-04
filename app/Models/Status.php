@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Status extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nome_status',
+        'ativo'
+    ];
+
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }
