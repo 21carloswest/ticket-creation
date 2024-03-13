@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('urgencias', function (Blueprint $table) {
             $table->id();
+            $table->string('nome_urgencia');
+            $table->boolean('ativo');
             $table->timestamps();
         });
     }

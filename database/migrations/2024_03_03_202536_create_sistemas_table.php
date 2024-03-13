@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('sistemas', function (Blueprint $table) {
             $table->id();
+            $table->string('nome_sistema');
+            $table->boolean('ativo');
             $table->timestamps();
         });
     }

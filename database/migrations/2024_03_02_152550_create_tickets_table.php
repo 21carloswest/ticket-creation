@@ -1,6 +1,11 @@
 <?php
 
+use App\Models\Cliente;
+use App\Models\Responsavel;
+use App\Models\Sistema;
 use App\Models\Status;
+use App\Models\Tag;
+use App\Models\Urgencia;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,7 +21,12 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Status::class)->nullable();
+            $table->foreignIdFor(Status::class);
+            $table->foreignIdFor(Sistema::class);
+            $table->foreignIdFor(Urgencia::class);
+            $table->foreignIdFor(Responsavel::class);
+            $table->foreignIdFor(Cliente::class);
+            $table->foreignIdFor(Tag::class);
             $table->string('titulo');
             $table->timestamps();
         });

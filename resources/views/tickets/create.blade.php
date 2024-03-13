@@ -5,20 +5,28 @@
         @csrf
         <div class="d-flex flex-column flex-grow-1 table-overflow me-3 px-3 text-light mh-100 min-vw-20 shadow" style="background-color: #474787">
             <div class="mb-3">
-                <label class="form-label" for="status">Status</label>
-                <select for="status" class="form-control" id="status" name="status">
-                    <option></option>
+                <label class="form-label" for="status_id">Status</label>
+                <select for="status" class="form-control @error('status_id') is-invalid @enderror" id="status" name="status_id">
+                    @foreach($status as $stat)
+                        <option value={{$stat->id}}>{{$stat->nome_status}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="sys">Sistema</label>
-                <select for="sys" class="form-control" id="sys" name="sys">
+                <label class="form-label" for="sistema_id">Sistema</label>
+                <select for="sistema_id" class="form-control @error('sistema_id') is-invalid @enderror" id="sistema_id" name="sistema_id">
+                    @foreach($sistemas as $sistema)
+                        <option value={{$sistema->id}}>{{$sistema->nome_sistema}}</option>
+                    @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="SLA">Urgência</label>
-                <select for="SLA" class="form-control" id="SLA" name="SLA">
+                <label class="form-label" for="urgencia_id">Urgência</label>
+                <select for="urgencia_id" class="form-control" id="urgencia_id" name="urgencia_id">
+                    @foreach($sistemas as $urgencia)
+                        <option value={{$urgencia->id}}>{{$urgencia->urgencia_sistema}}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -51,12 +59,7 @@
         <h2 class="">Novo ticket</h2>
             <div class="mb-3">
                 <label class="form-label" for="titulo">Título</label>
-                <input class="form-control @error('titulo') is-invalid @enderror shadow-lg rounded" id="titulo" type = "text" name="titulo">
-                @error('titulo')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <input class="form-control @error('titulo') is-invalid @enderror shadow-lg rounded" id="titulo" type = "text" name="titulo" value={{old('titulo')}}>
             </div>
 
             <div class="mb-3">
@@ -64,7 +67,7 @@
                 <textarea class="form-control shadow-lg rounded" 
                     id="descricao" 
                     name="descricao" 
-                    rows="16"></textarea>
+                    rows="16">{{old('descricao')}}</textarea>
             </div>
             <div class="align-self-end">
                 <button type="button"class="btn btn-primary me-2" onclick="window.location='index.php'">Voltar</button>

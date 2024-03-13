@@ -6,9 +6,11 @@
         @method('patch')
         <div class="d-flex flex-column flex-grow-1 table-overflow me-3 px-3 text-light mh-100 min-vw-20 shadow" style="background-color: #474787">
             <div class="mb-3">
-                <label class="form-label" for="status">Status</label>
-                <select for="status" class="form-control" id="status" name="status">
-                    <option></option>
+                <label class="form-label" for="status_id">Status</label>
+                <select for="status" class="form-control" id="status" name="status_id">
+                    @foreach($status as $stat)
+                        <option value="{{$stat->id}}" @if($stat->id == $ticket->status_id) selected @endif>{{$stat->nome_status}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="mb-3">

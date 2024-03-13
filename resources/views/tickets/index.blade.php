@@ -16,7 +16,7 @@
                     <tr style='cursor: pointer;' onclick=window.location.href="{{route('ticket.edit', $ticket)}}">
                         <td>{{$ticket->id}}</td>
                         <td>{{$ticket->titulo}}</td>
-                        <td>{{$ticket->status->nome_status}}</td>
+                        <td>{{$ticket?->status?->nome_status}}</td>
                         <td>{{$ticket->status_id}}</td>
                     </tr>
                 </a>

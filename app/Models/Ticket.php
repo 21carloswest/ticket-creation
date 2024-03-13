@@ -13,7 +13,9 @@ class Ticket extends Model
     
     protected $fillable = [
         'titulo',
-        'user_id'
+        'user_id',
+        'status_id',
+        'sistema_id'
     ];
 
     public function user()
@@ -27,6 +29,11 @@ class Ticket extends Model
     }
 
     public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
+
+    public function sistema()
     {
         return $this->belongsTo(Status::class);
     }

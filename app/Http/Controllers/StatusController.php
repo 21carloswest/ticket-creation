@@ -56,7 +56,7 @@ class StatusController extends Controller
     public function edit(Status $status)
     {
         return view('status.edit', [
-            'Status' => $status
+            'status' => $status
         ]);
     }
 
@@ -65,7 +65,14 @@ class StatusController extends Controller
      */
     public function update(Request $request, Status $status)
     {
-        //
+        $status->update([
+            ...$request->validate([
+                'nome_status' => 'required|string',
+                'ativo' => 'sometimes|boolean'
+            ])
+        ]);
+
+        return Redirect::route('status.index')->with('message','Edição concluída com sucesso.');
     }
 
     /**
@@ -81,6 +88,5 @@ class StatusController extends Controller
         {
             return Redirect::back()->with('message','O status não pode ser deletado pois há tickets vinculados a ele.');
         };
-
     }
 }

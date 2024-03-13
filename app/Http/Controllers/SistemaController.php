@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Sistema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class SistemaController extends Controller
 {
@@ -12,7 +14,9 @@ class SistemaController extends Controller
      */
     public function index()
     {
-        //
+        return view('sistema.index', [
+            'sistemas' => Sistema::paginate(10)
+        ]);
     }
 
     /**
@@ -28,7 +32,14 @@ class SistemaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Sistema::create([
+            ...$request->validate([
+                'nome_sistema' => 'required|string',
+            ]),
+            'ativo' => '1'
+        ]);
+
+        return Redirect::back()->with('message','Cadastro concluído com sucesso.');
     }
 
     /**
@@ -44,7 +55,9 @@ class SistemaController extends Controller
      */
     public function edit(Sistema $sistema)
     {
-        //
+        return view('sistema.edit', [
+            'sistema' => $sistema
+        ]);
     }
 
     /**
@@ -60,6 +73,13 @@ class SistemaController extends Controller
      */
     public function destroy(Sistema $sistema)
     {
-        //
+        if(!DB::table("tickets")->where("sistema_id", "$sistema->id")->first())
+        {
+            $sistema->delete();
+            return Redirect::back()->with('message','Exclusão concluída com sucesso.');
+        } else
+        {
+            return Redirect::back()->with('message','O sistema não pode ser deletado pois há ticket(s) vinculados a ele.');
+        };
     }
 }
