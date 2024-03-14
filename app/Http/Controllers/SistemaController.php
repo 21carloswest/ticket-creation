@@ -65,7 +65,14 @@ class SistemaController extends Controller
      */
     public function update(Request $request, Sistema $sistema)
     {
-        //
+        $sistema->update([
+            ...$request->validate([
+                'nome_sistema' => 'required|string',
+                'ativo' => 'sometimes|boolean'
+            ])
+        ]);
+
+        return Redirect::route('sistema.index')->with('message','Edição concluída com sucesso.');
     }
 
     /**

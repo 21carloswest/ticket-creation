@@ -24,7 +24,7 @@
             <div class="mb-3">
                 <label class="form-label" for="urgencia_id">Urgência</label>
                 <select for="urgencia_id" class="form-control" id="urgencia_id" name="urgencia_id">
-                    @foreach($sistemas as $urgencia)
+                    @foreach($urgencias as $urgencia)
                         <option value={{$urgencia->id}}>{{$urgencia->urgencia_sistema}}</option>
                     @endforeach
                 </select>
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <div class="d-flex flex-column col-md-10">
+        <div class="d-flex flex-column mt-1 col-md-10">
         <h2 class="">Novo ticket</h2>
             <div class="mb-3">
                 <label class="form-label" for="titulo">Título</label>
@@ -64,9 +64,9 @@
 
             <div class="mb-3">
                 <label class="form-label" for="descricao">Descrição</label>
-                <textarea class="form-control shadow-lg rounded" 
-                    id="descricao" 
-                    name="descricao" 
+                <textarea class="form-control shadow-lg rounded"
+                    id="descricao"
+                    name="descricao"
                     rows="16">{{old('descricao')}}</textarea>
             </div>
             <div class="align-self-end">

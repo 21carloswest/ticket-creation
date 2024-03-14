@@ -17,7 +17,7 @@ class TicketController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    } 
+    }
     /**
      * Display a listing of the resource.
      */
@@ -30,7 +30,7 @@ class TicketController extends Controller
                     $perPage = 20, $columns = ['id', 'titulo', 'user_id', 'status_id', 'created_at']
                 )
         ]);
-        
+
     }
 
     /**
@@ -41,7 +41,7 @@ class TicketController extends Controller
         return view('tickets.create', [
             'status' => DB::table('statuses')->select('id', 'nome_status')->where('ativo', '1')->get(),
             'sistemas' => DB::table('sistemas')->select('id', 'nome_sistema')->where('ativo', '1')->get(),
-            'sistemas' => DB::table('urgencias')->select('id', 'nome_urgencia')->where('ativo', '1')->get(),
+            'urgencias' => DB::table('urgencias')->select('id', 'nome_urgencia')->where('ativo', '1')->get(),
             'responsaveis' => DB::table('users')->select('id', 'name')->where('ativo', '1')->get(),
             'clientes' => DB::table('clientes')->select('id', 'cliente_nome')->where('ativo', '1')->get(),
             'tags' => DB::table('tags')->select('id', 'nome_tag')->where('ativo', '1')->get(),
