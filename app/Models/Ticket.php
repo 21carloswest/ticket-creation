@@ -14,8 +14,12 @@ class Ticket extends Model
     protected $fillable = [
         'titulo',
         'user_id',
+        'sistema_id',
         'status_id',
-        'sistema_id'
+        'urgencia_id',
+        'responsavel_id',
+        'cliente_id',
+        'tag_id',
     ];
 
     public function user()

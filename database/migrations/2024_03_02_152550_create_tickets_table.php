@@ -26,7 +26,7 @@ return new class extends Migration
             $table->foreignIdFor(Urgencia::class);
             $table->foreignIdFor(Responsavel::class);
             $table->foreignIdFor(Cliente::class);
-            $table->foreignIdFor(Tag::class);
+            $table->foreignIdFor(Tag::class)->nullable();
             $table->string('titulo');
             $table->timestamps();
         });

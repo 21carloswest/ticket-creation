@@ -61,7 +61,7 @@ class TicketController extends Controller
                 'urgencia_id' => 'required|integer',
                 'responsavel_id' => 'required|integer',
                 'cliente_id' => 'required|integer',
-                'tag_id' => 'required|integer',
+                'tag_id' => 'nullable|integer',
             ]),
             'user_id' => $request->user()->id,
         ])->descricao()->create([
