@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'equipe_id',
+        'ativo'
     ];
 
     /**
@@ -46,5 +48,10 @@ class User extends Authenticatable
     public function ticket()
     {
         return $this->hasMany(Ticket::class);
+    }
+
+    public function equipe()
+    {
+        return $this->belongsTo(Equipe::class);
     }
 }

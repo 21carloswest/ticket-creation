@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nome_tag',
+        'ativo'
+    ];
+
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

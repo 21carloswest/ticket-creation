@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DescricaoController;
 use App\Http\Controllers\EquipeController;
-use App\Http\Controllers\ResponsavelController;
 use App\Http\Controllers\SistemaController;
 use App\Http\Controllers\SolicitanteController;
 use App\Http\Controllers\StatusController;
@@ -37,15 +36,13 @@ Route::get('/mark-as-read', [App\Http\Controllers\TicketController::class,'markA
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::resource('/categoria', CategoriaController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
+    Route::resource('/register', RegisterController::class)->only('create', 'store', 'edit', 'update', 'destroy');
 
     Route::resource('/cliente', ClienteController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
 
-    //Route::resource('/descricao', DescricaoController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
+    Route::resource('/descricao', DescricaoController::class)->only('store', 'update');
 
     Route::resource('/equipe', EquipeController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
-
-    Route::resource('/responsavel', ResponsavelController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
 
     Route::resource('/sistema', SistemaController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
 
@@ -57,9 +54,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('/ticket', TicketController::class)->only('index', 'create', 'store', 'edit', 'update');
  
-    Route::resource('/urgencia', UrgenciaController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
+    Route::resource('/urgencias', UrgenciaController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
     
-    Route::resource('/usuario', UserController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
+    Route::resource('/user', UserController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
 
 });
 

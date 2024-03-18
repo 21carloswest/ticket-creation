@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Descricao;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class DescricaoController extends Controller
 {
@@ -28,7 +30,14 @@ class DescricaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Descricao::create([
+            ...$request->validate([
+                'descricao' => 'required|string',
+                'ticket_id' => 'required|integer',
+            ]),
+            'user_id' => $request->user()->id,
+        ]);
+        return Redirect::back();
     }
 
     /**

@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Cliente;
-use App\Models\Responsavel;
 use App\Models\Sistema;
 use App\Models\Status;
 use App\Models\Tag;
@@ -24,7 +23,7 @@ return new class extends Migration
             $table->foreignIdFor(Status::class);
             $table->foreignIdFor(Sistema::class);
             $table->foreignIdFor(Urgencia::class);
-            $table->foreignIdFor(Responsavel::class);
+            $table->foreignIdFor(User::class, 'responsavel_id');
             $table->foreignIdFor(Cliente::class);
             $table->foreignIdFor(Tag::class)->nullable();
             $table->string('titulo');

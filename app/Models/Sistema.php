@@ -18,4 +18,9 @@ class Sistema extends Model
     {
         return $this->hasMany(Ticket::class);
     }
+
+    public function cliente()
+    {
+        return $this->hasMany(Cliente::class);
+    }
 }

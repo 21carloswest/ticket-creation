@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Descricao;
-use App\Models\Status;
 use App\Models\Ticket;
 use App\Models\User;
 use App\Notifications\AtualizaçãoTicket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
 
 class TicketController extends Controller
 {
@@ -72,7 +69,7 @@ class TicketController extends Controller
         ]);
         User::find(Auth::user()->id)->notify(new AtualizaçãoTicket($ticket->id));
 
-        return redirect("ticket/$ticket->id/edit");
+        return redirect("ticket/$ticket->ticket_id/edit");
     }
 
     /**
@@ -86,12 +83,25 @@ class TicketController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ticket $ticket, Descricao $descricao)
-    {
+    public function edit(Ticket $ticket)
+    {     
         return view('tickets.edit', [
             'ticket' => $ticket,
-            'descricao' => $descricao->where('ticket_id', $ticket->id)->first(),
-            'status' => DB::table('statuses')->select('id', 'nome_status')->get()
+            'user' => DB::table('users')->select('id', 'name')->where('id', $ticket->user_id)->first(),
+            'descricaos' => DB::select(
+                'SELECT descricaos.id, descricaos.descricao, descricaos.created_at, users.id as user_id, users.`name`
+                 FROM descricaos
+                 INNER JOIN users
+                 ON descricaos.user_id = users.id
+                 WHERE descricaos.ticket_id ='.$ticket->id.
+                 ' ORDER BY descricaos.created_at DESC'),
+            'status' => DB::table('statuses')->select('id', 'nome_status')->where('ativo', '1')->get(),
+            'sistemas' => DB::table('sistemas')->select('id', 'nome_sistema')->where('ativo', '1')->get(),
+            'urgencias' => DB::table('urgencias')->select('id', 'nome_urgencia')->where('ativo', '1')->get(),
+            'responsaveis' => DB::table('users')->select('id', 'name')->where('ativo', '1')->get(),
+            'clientes' => DB::table('clientes')->select('id', 'cliente_nome')->where('ativo', '1')->get(),
+            'tags' => DB::table('tags')->select('id', 'nome_tag')->where('ativo', '1')->get(),
+            //'users' => 
         ]);
     }
 

@@ -17,7 +17,7 @@
                         <td>{{$ticket->id}}</td>
                         <td>{{$ticket->titulo}}</td>
                         <td>{{$ticket?->status?->nome_status}}</td>
-                        <td>{{$ticket->status_id}}</td>
+                        <td>{{$ticket?->user?->name}}</td>
                     </tr>
                 </a>
             @endforeach

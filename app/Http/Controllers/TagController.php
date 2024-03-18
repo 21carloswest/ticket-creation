@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class TagController extends Controller
 {
@@ -12,7 +14,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return view('tag.index', [
+            'tags' => Tag::paginate(10)
+        ]);
     }
 
     /**
@@ -28,7 +32,14 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tag::create([
+            ...$request->validate([
+                'nome_tag' => 'required|string',
+            ]),
+            'ativo' => '1'
+        ]);
+
+        return Redirect::back()->with('message','Cadastro concluído com sucesso.');
     }
 
     /**
@@ -44,7 +55,9 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('tag.edit', [
+            'tag' => $tag
+        ]);
     }
 
     /**
@@ -52,7 +65,14 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->update([
+            ...$request->validate([
+                'nome_tag' => 'required|string',
+                'ativo' => 'sometimes|boolean'
+            ])
+        ]);
+
+        return Redirect::route('tag.index')->with('message','Edição concluída com sucesso.');
     }
 
     /**
@@ -60,6 +80,13 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        if(!DB::table("tickets")->where("status_id", "$tag->id")->first())
+        {
+            $tag->delete();
+            return Redirect::back()->with('message','Exclusão concluída com sucesso.');
+        } else
+        {
+            return Redirect::back()->with('message','A tag não pode ser deletada pois há tickets vinculados a ele.');
+        };
     }
 }

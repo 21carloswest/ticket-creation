@@ -19,11 +19,12 @@
     <style>
         table { table-layout: fixed; }
         table th, table td { overflow: hidden; }
+        html { overflow-y:scroll;}
     </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color: #0C0032;">
             <div class="container">
                 
                 
@@ -49,9 +50,6 @@
                                 Cadastros
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('categoria.index') }}">
-                                    Categoria
-                                </a>
                                 <a class="dropdown-item" href="{{ route('cliente.index') }}">
                                     Cliente
                                 </a>
@@ -67,10 +65,10 @@
                                 <a class="dropdown-item" href="{{ route('tag.index') }}">
                                     Tag
                                 </a>
-                                <a class="dropdown-item" href="{{ route('urgencia.index') }}">
+                                <a class="dropdown-item" href="{{ route('urgencias.index') }}">
                                     Urgência
                                 </a>
-                                <a class="dropdown-item" href="{{ route('usuario.index') }}">
+                                <a class="dropdown-item" href="{{ route('user.index') }}">
                                     Usuário
                                 </a>
                             </div>
@@ -85,12 +83,6 @@
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else

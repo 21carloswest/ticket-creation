@@ -33,7 +33,7 @@
                 @enderror
               </div>
         <div class="mt-3">
-            <button type="button" class="btn btn-secondary">Cancelar</button>
+            <a href="{{route("sistema.index")}}"><button type="button" class="btn btn-secondary">Cancelar</button></a>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
     </form>
