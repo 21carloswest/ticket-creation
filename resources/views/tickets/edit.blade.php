@@ -8,59 +8,78 @@
             <h4 class="mt-2">Nº: {{$ticket->id}}</h4>
             <div class="mb-3">
                 <label class="form-label" for="status_id">Status</label>
-                <select for="status" class="form-control" id="status" name="status_id">
+                <select for="status" class="form-control" id="status_id" name="status_id">
                     @foreach($status as $stat)
-                        <option value="{{$stat->id}}" @if($stat->id == $ticket->status_id) selected @endif>{{$stat->nome_status}}</option>
+                        <option value="{{$stat->id}}" {{old('status_id', $ticket->status_id) == $ticket->status_id ? 'selected' : ''}}>{{$stat->nome_status}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="sys">Sistema</label>
-                <select for="sys" class="form-control" id="sys" name="sys">
+                <label class="form-label" for="sistema_id">Sistema</label>
+                <select for="sistema_id" class="form-control" id="sistema_id" name="sistema_id">
+                    @foreach($sistemas as $sistema)
+                        <option value="{{$sistema->id}}" {{old('sistema_id', $ticket->sistema_id) == $ticket->sistema_id ? 'selected' : ''}}>{{$sistema->nome_sistema}}</option>
+                    @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="SLA">Urgência</label>
-                <select for="SLA" class="form-control" id="SLA" name="SLA">
+                <label class="form-label" for="urgencia_id">Urgência</label>
+                <select for="urgencia_id" class="form-control" id="urgencia_id" name="urgencia_id">
+                    @foreach($urgencias as $urgencia)
+                        <option value="{{$urgencia->id}}" {{old('urgencia_id', $ticket->urgencia_id) == $ticket->urgencia_id ? 'selected' : ''}}>{{$urgencia->nome_urgencia}}</option>
+                    @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="category">Categoria</label>
-                <select for="category" class="form-control" id="category" name="category">
+                <label class="form-label" for="responsavel_id">Responsável</label>
+                <select for="responsavel_id" class="form-control" id="responsavel_id" name="responsavel_id">
+                    @foreach($responsaveis as $responsavel)
+                        <option value="{{ $responsavel->id }}"
+                            @if(old('responsavel_id',$ticket->responsavel_id) == $responsavel->id) selected @endif >
+                            {{ $responsavel->name }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="author">Responsável</label>
-                <select for="author" class="form-control" id="author"name="author">
+                <label class="form-label" for="cliente_id">Cliente</label>
+                <select for="cliente_id" class="form-control" id="cliente_id" name="cliente_id">
+                    @foreach($clientes as $cliente)
+                        <option value="{{ $cliente->id }}"
+                            @if(old('cliente_id',$ticket->cliente_id) == $cliente->id) selected @endif >
+                            {{ $cliente->cliente_nome }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="costumer">Cliente</label>
-                <select for="costumer" class="form-control" id="costumer"name="costumer">
+                <label class="form-label" for="tag_id">Tag</label>
+                <select for="tag_id" class="form-control" id="tag_id" name="tag_id">
+                    @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}"
+                            @if(old('tag_id', $ticket->tag_id) == $tag->id) selected @endif>
+                            {{ $tag->nome_tag }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label" for="tag">Tag</label>
-                <select for="tag" class="form-control" id="tag" name="tag">
-                </select>
-            </div>
         </div>
 
         <div class="d-flex flex-column col-md-10 min-vh-100">
             <div class="mb-3 mt-2">
-                <div class="d-flex justify-content-between flex-row"> 
-                    <div class="p-2"> 
+                <div class="d-flex justify-content-between flex-row">
+                    <div class="p-2">
                         <label class="form-label" for="titulo"><h4>Título</h4></label>
-                    </div> 
-                    <div class="p-2"> 
+                    </div>
+                    <div class="p-2">
                         <p>Criado por: {{$user->name}}, em: {{date('d/m/Y H:i', strtotime($ticket->created_at))}}</p>
-                    </div> 
-                </div> 
+                    </div>
+                </div>
                 <input class="form-control shadow-lg rounded" id="titulo" value="{{ $ticket->titulo }}" type = "text" name="titulo">
             </div>
 

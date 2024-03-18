@@ -7,7 +7,7 @@
                 <th>ID</th>
                 <th>Título</th>
                 <th>Status</th>
-                <th>Responsável</th>
+                <th>Criado por</th>
             </tr>
         </thead>
 
@@ -24,5 +24,5 @@
 
         </tbody>
     </table>
-    {{ $tickets->links() }} 
+    {{ $tickets->links() }}
 @endsection

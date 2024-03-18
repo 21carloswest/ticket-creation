@@ -8,6 +8,7 @@ use App\Notifications\AtualizaçãoTicket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class TicketController extends Controller
 {
@@ -24,7 +25,7 @@ class TicketController extends Controller
             'tickets' => Ticket::with('user', 'status')
                 ->latest()
                 ->paginate(
-                    $perPage = 20, $columns = ['id', 'titulo', 'user_id', 'status_id', 'created_at']
+                    $perPage = 20, $columns = ['id', 'titulo', 'user_id', 'status_id', 'responsavel_id', 'created_at']
                 )
         ]);
 
@@ -84,7 +85,7 @@ class TicketController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Ticket $ticket)
-    {     
+    {
         return view('tickets.edit', [
             'ticket' => $ticket,
             'user' => DB::table('users')->select('id', 'name')->where('id', $ticket->user_id)->first(),
@@ -101,7 +102,7 @@ class TicketController extends Controller
             'responsaveis' => DB::table('users')->select('id', 'name')->where('ativo', '1')->get(),
             'clientes' => DB::table('clientes')->select('id', 'cliente_nome')->where('ativo', '1')->get(),
             'tags' => DB::table('tags')->select('id', 'nome_tag')->where('ativo', '1')->get(),
-            //'users' => 
+            //'users' =>
         ]);
     }
 
@@ -110,7 +111,21 @@ class TicketController extends Controller
      */
     public function update(Request $request, Ticket $ticket)
     {
-        //
+        $ticket->update([
+            ...$request->validate([
+                'titulo' => 'sometimes|string',
+                'status_id' => 'sometimes|integer',
+                'sistema_id' => 'sometimes|integer',
+                'urgencia_id' => 'sometimes|integer',
+                'responsavel_id' => 'sometimes|integer',
+                'cliente_id' => 'sometimes|integer',
+                'tag_id' => 'sometimes|integer',
+            ]),
+            'user_id' => $request->user()->id,
+        ]);
+        //User::find(Auth::user()->id)->notify(new AtualizaçãoTicket($ticket->id));
+
+        return Redirect::back();
     }
 
     /**
